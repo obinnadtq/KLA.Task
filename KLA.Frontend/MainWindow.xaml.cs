@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +25,28 @@ namespace KLA.Frontend
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using var client = new HttpClient();
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7242/api/v1/convertDollar")
+            {
+                Content = JsonContent.Create(numberTextBox.Text)
+            };
+
+            var responseMessage = await client.SendAsync(requestMessage);
+            
+
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                message.Content = await responseMessage.Content.ReadAsStringAsync();
+            }
+            else
+            {
+                message.Content = $"Server error code {responseMessage.StatusCode}";
+            }
         }
     }
 }

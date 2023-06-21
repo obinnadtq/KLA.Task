@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KLA.Frontend"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="400" Width="400">
     <Grid>
-
+        <StackPanel Margin="10">
+            <Label Content="Please enter a number between 0 and 999999999,99"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
+            <TextBox x:Name="numberTextBox"
+                     VerticalAlignment="Center"
+                     Width="100"
+                     Margin="1, 1, 1, 5"/>
+            <Button Content="Submit"
+                    FontSize="26"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    x:Name="submitButton"
+                    Click="Button_Click"
+                    Margin="0,0,0,5"/>
+            <Label VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontSize="26"
+                   Name="message"/>
+        </StackPanel>
     </Grid>
 </Window>
