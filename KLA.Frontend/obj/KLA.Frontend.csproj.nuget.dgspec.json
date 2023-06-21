@@ -1,0 +1,144 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.Frontend\\KLA.Frontend.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.Frontend\\KLA.Frontend.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.Frontend\\KLA.Frontend.csproj",
+        "projectName": "KLA.Frontend",
+        "projectPath": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.Frontend\\KLA.Frontend.csproj",
+        "packagesPath": "C:\\Users\\ObinnaIsiwekpeni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.Frontend\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ObinnaIsiwekpeni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Work\\Local-nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.ops.twinner.com/repository/Public-NugetStore/": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\KLA.WebApi.csproj": {
+                "projectPath": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\KLA.WebApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\KLA.WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\KLA.WebApi.csproj",
+        "projectName": "KLA.WebApi",
+        "projectPath": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\KLA.WebApi.csproj",
+        "packagesPath": "C:\\Users\\ObinnaIsiwekpeni\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ObinnaIsiwekpeni\\source\\repos\\KLA.Task\\KLA.WebApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ObinnaIsiwekpeni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Work\\Local-nuget": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.ops.twinner.com/repository/Public-NugetStore/": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "zWZPWzLorxF9oSfdS7X3/20NgjOF5CpWvWE2yLJNORk=",
+  "Source": "KLA.WebApi",
+  "BasePath": "_content/KLA.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
