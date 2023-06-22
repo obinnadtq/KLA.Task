@@ -37,16 +37,9 @@ namespace KLA.Frontend
             };
 
             var responseMessage = await client.SendAsync(requestMessage);
-            
 
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                message.Content = await responseMessage.Content.ReadAsStringAsync();
-            }
-            else
-            {
-                message.Content = $"Server error code {responseMessage.StatusCode}";
-            }
+            message.Content = await responseMessage.Content.ReadAsStringAsync();
+      
         }
     }
 }
