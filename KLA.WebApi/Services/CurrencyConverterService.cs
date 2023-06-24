@@ -3,73 +3,94 @@ public class CurrencyConverterService : ICurrencyConverterService
 {
     public string ConvertDollarToWords(string input)
     {
-        if (string.IsNullOrEmpty(input))
-        {
-            throw new BadHttpRequestException("No valid input entered");
-        }
-
-        var splittedString = input.Split(",");
-
-        var (dollarValue, centValue) = Validation.ValidateCurrency(splittedString);
+        var (dollarValue, centValue) = Validation.ValidateInput(input);
 
         if (dollarValue is null && centValue is null)
         {
             throw new BadHttpRequestException("The values entered are invalid currency values and cannot be converted to words");
         }
 
-        var resultingDollarValueInWords = ConvertDollarValue(dollarValue!.Value);
-
-        if (dollarValue == 1)
-        {
-            return $"{resultingDollarValueInWords} dollar";
-        }
-
-        return $"{resultingDollarValueInWords} dollars";
+        return FormatResult(dollarValue, centValue);
     }
 
-    private string ConvertDollarValue(int dollarValue)
+    private string FormatResult(int? dollarValue, int? centValue)
     {
-        if (dollarValue == 0)
+        string resultingDollarValueInWords;
+        string resultingCentsValueInWords;
+        string result = "";
+
+        if (dollarValue != null)
         {
-            return Currency.currencyValueWordsMapping[dollarValue];
+            resultingDollarValueInWords = ConvertNumberToWords(dollarValue.Value);
+
+            if (dollarValue == 1)
+            {
+                result = $"{resultingDollarValueInWords} dollar";
+            }
+            else
+            {
+                result = $"{resultingDollarValueInWords} dollars";
+            }
+        }
+
+        if (centValue != null)
+        {
+            resultingCentsValueInWords = ConvertNumberToWords(centValue.Value);
+
+            if (centValue == 1)
+            {
+                result += $" and {resultingCentsValueInWords} cent";
+            }
+            else
+            {
+                result += $" and {resultingCentsValueInWords} cents";
+            }
+        }
+
+        return result;
+    }
+
+    private string ConvertNumberToWords(int number)
+    {
+        if (number == 0)
+        {
+            return Currency.currencyValueWordsMapping[number];
         }
 
         string result = "";
 
-        if ((dollarValue / 1000000) > 0)
+        if ((number / 1000000) > 0)
         {
-            result += $"{ConvertDollarValue(dollarValue / 1000000)} million ";
-            dollarValue %= 1000000;
+            result += $"{ConvertNumberToWords(number / 1000000)} million ";
+            number %= 1000000;
         }
 
-        if ((dollarValue / 1000) > 0)
+        if ((number / 1000) > 0)
         {
-            result += $"{ConvertDollarValue(dollarValue / 1000)} thousand ";
-            dollarValue %= 1000;
+            result += $"{ConvertNumberToWords(number / 1000)} thousand ";
+            number %= 1000;
         }
 
-        if ((dollarValue / 100) > 0)
+        if ((number / 100) > 0)
         {
-            result += $"{ConvertDollarValue(dollarValue / 100)} hundred ";
-            dollarValue %= 100;
+            result += $"{ConvertNumberToWords(number / 100)} hundred ";
+            number %= 100;
         }
 
-        if ((dollarValue / 10) > 0)
+        if (number > 0)
         {
-            var wholeNumber = (dollarValue / 10) * 10;
-            result += Currency.currencyValueWordsMapping[wholeNumber];
-            dollarValue %= 10;
-        }
-
-        if (dollarValue > 0)
-        {
-            if (result != "")
+            if (number < 20)
             {
-                result += "-";
+                result += Currency.currencyValueWordsMapping[number];
             }
-            if ((dollarValue % 10) > 0)
+            else
             {
-                result += Currency.currencyValueWordsMapping[dollarValue];
+                result += Currency.currencyValueWordsMapping[number - (number % 10)];
+
+                if ((number % 10) > 0)
+                {
+                    result += "-" + Currency.currencyValueWordsMapping[number % 10];
+                }
             }
         }
         return result;
